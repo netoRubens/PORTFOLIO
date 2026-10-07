@@ -1,0 +1,100 @@
+/* Página de trabalhos (botão MAIS). Usa as variáveis do style.css */
+
+.pagina-trabalhos {
+  background: var(--vermelho);
+  color: var(--branco);
+}
+
+.trabalhos-pagina {
+  min-height: 100vh;
+  padding: 1.5rem var(--lateral) 5rem;
+}
+
+.trabalhos-pagina__voltar {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+.trabalhos-pagina__voltar:hover { text-decoration: underline; }
+.trabalhos-pagina a:focus-visible { outline-color: var(--branco); }
+
+.trabalhos-pagina__titulo {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+/* grade 2 x 2 */
+.trabalhos-grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5rem clamp(3rem, 10vw, 8rem);
+  max-width: 56rem;
+  margin: 2.5rem auto 0;
+}
+
+/* cartão: imagem em cima; texto à esquerda; botão e tecnologias à direita */
+.cartao {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.9rem 0.85rem;
+  align-content: start;
+}
+
+.cartao__img {
+  grid-column: 1 / -1;
+  width: 96%;
+  aspect-ratio: var(--proporcao-sites); /* definida no começo do style.css */
+  background: var(--cinza);
+  box-shadow: var(--sombra);
+}
+
+.cartao__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.cartao__texto {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.cartao__acoes {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: start;
+  align-content: start;
+}
+
+.cartao__botao {
+  padding: 0.55rem 0.8rem;
+  background: var(--cinza);
+  color: var(--vermelho);
+  box-shadow: var(--sombra);
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.cartao__botao:hover { background: var(--branco); }
+
+/* ícones vermelhos viram brancos */
+.cartao__techs { display: flex; gap: 0.4rem; }
+.cartao__techs img {
+  display: block;
+  width: 1.3rem;
+  height: 1.3rem;
+  filter: brightness(0) invert(1);
+}
+
+/* celular: uma coluna */
+@media (max-width: 700px) {
+  .trabalhos-grade { grid-template-columns: 1fr; gap: 3.5rem; }
+}
